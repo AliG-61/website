@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Şirket İsmi - Günlük Karadeniz Turları</title>
+  <meta name="description" content="Şirket İsmi günlük Karadeniz turları: Trabzon, Rize, Giresun ve daha fazlası. Rota, öne çıkanlar ve genel bilgiler." />
+  <meta name="keywords" content="Şirket İsmi, Trabzon tur, Rize tur, Karadeniz turları, günlük tur, Uzungöl, Ayder" />
+  <meta name="author" content="Şirket İsmi" />
+
+  <!-- Open Graph SEO -->
+  <meta property="og:title" content="Ganita Travel - Günlük Karadeniz Turları" />
+  <meta property="og:description" content="Trabzon, Rize, Giresun ve çevresinde bilgilendirme amaçlı günlük tur rotaları ve öne çıkanlar." />
+  <meta property="og:image" content="uzungolanasayfa.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root { --accent:#e10600; --bg-card:#111; --bg-overlay:rgba(0,0,0,.6); --text:#fff; --muted:#ccc; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:url('backgraund.jpg') no-repeat center top fixed; background-size:cover; }
+    header { background:rgba(0,0,0,.7); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:1000; gap:1rem; backdrop-filter: saturate(120%) blur(6px); }
+    .logo { font-weight:700; letter-spacing:.5px; }
+    nav { display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; }
+    nav a { color:#fff; text-decoration:none; font-weight:500; transition:color .25s; }
+    nav a:hover, nav a.active { color:var(--accent); }
+    #langSelector { display:flex; gap:.5rem; }
+    #langSelector button { color:#fff; background:transparent; border:1px solid rgba(255,255,255,.2); cursor:pointer; font-weight:700; font-size:12px; padding:6px 10px; border-radius:10px; transition:all .25s; }
+    #langSelector button:hover, #langSelector button.active { background:var(--accent); border-color:var(--accent); }
+
+    .page-hero { background:rgba(0,0,0,.55); padding:4rem 1.25rem 2rem; text-align:center; }
+    .page-hero h1 { margin:0; color:var(--accent); font-size:clamp(1.8rem,4vw,2.6rem); }
+    .page-hero p { max-width:800px; margin:.75rem auto 0; line-height:1.6; color:#f0f0f0; }
+
+    .section { padding:2.5rem 1.25rem; background:var(--bg-overlay); }
+
+    .tour-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns: repeat(3, 1fr); gap:1.5rem; }
+    .tour-card { background:var(--bg-card); border-radius:14px; overflow:hidden; box-shadow:0 0 10px rgba(255,255,255,.08); display:flex; flex-direction:column; }
+    .tour-card img { width:100%; height:200px; object-fit:cover; display:block; }
+    .tour-body { padding:1rem 1rem 1.25rem; display:flex; flex-direction:column; gap:.5rem; }
+    .tour-title { margin:0; color:var(--accent); font-size:1.05rem; }
+    .tour-desc { margin:0; color:#eaeaea; font-size:.95rem; line-height:1.5; }
+    .tour-meta { margin:.25rem 0 0; font-size:.9rem; color:var(--muted); }
+    .badge-list { display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
+    .badge { border:1px dashed rgba(255,255,255,.25); border-radius:999px; padding:.25rem .6rem; font-size:.8rem; color:#f5f5f5; }
+
+    .info-note { max-width:900px; margin:1rem auto 0; text-align:center; color:var(--muted); font-size:.95rem; }
+
+    footer { padding:2rem; background:rgba(0,0,0,.85); text-align:center; color:var(--muted); }
+
+    /* RTL uyum */
+    html[dir="rtl"] body { direction:rtl; }
+    html[dir="rtl"] nav { flex-direction:row-reverse; }
+    html[dir="rtl"] .page-hero, html[dir="rtl"] .tour-body { text-align:right; }
+
+    @media (max-width:1024px){ .tour-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width:680px){ .tour-grid { grid-template-columns: 1fr; } .tour-card img { height:180px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Şirket İsmi</div>
+    <nav>
+      <a href="index.html" data-i18n="nav.anasayfa">Ana Sayfa</a>
+     
+      <a href="bungalovlar2.html" data-i18n="nav.bungalovlar">Bungalovlar</a>
+      <a href="hakkimizda.html" data-i18n="nav.nedenBiz">Neden Biz?</a>
+      <a href="iletisim.html" data-i18n="nav.iletisim">İletişim</a>
+    </nav>
+    <div id="langSelector"></div>
+  </header>
+
+  <section class="page-hero">
+    <h1 data-i18n="tours.hero.title">Günlük Karadeniz Turları</h1>
+    <p data-i18n="tours.hero.desc">Aşağıda yer alan rotalar bilgilendirme amaçlıdır. İçerikler; güzergâh, öne çıkan noktalar ve önerileri içerir. Rezervasyon için lütfen iletişim sayfasını kullanın.</p>
+    <p class="info-note" data-i18n="tours.hero.note">Not: Bu sayfada fiyat bilgisi yer almaz.</p>
+  </section>
+
+  <section class="section">
+    <div class="tour-grid">
+      <!-- Trabzon - Sümela & Uzungöl -->
+      <article class="tour-card">
+        <img src="Sumela1.jpg" alt="Uzungöl ve Sümela turu" />
+        <div class="tour-body">
+          <h3 class="tour-title" data-i18n="tours.trabzon.title">Trabzon: Sümela Manastırı & Uzungöl</h3>
+          <p class="tour-desc" data-i18n="tours.trabzon.desc">Tarihin ve doğanın buluştuğu bir rota: Altındere Milli Parkı içinde Sümela Manastırı ziyareti, Çal Mağarası opsiyonu ve Uzungöl çevresinde yürüyüş molaları.</p>
+          <div class="badge-list">
+            <span class="badge" data-i18n="tours.badges.tarih">Tarih</span>
+            <span class="badge" data-i18n="tours.badges.doga">Doğa</span>
+            <span class="badge" data-i18n="tours.badges.fotograf">Fotoğraf</span>
+          </div>
+          <p class="tour-meta" data-i18n="tours.trabzon.meta">Önerilen duraklar: Sümela – Zigana Geçidi – Hamsiköy Sütlacı – Uzungöl Göl Çevresi</p>
+        </div>
+      </article>
+
+      <!-- Rize - Ayder & Zilkale -->
+      <article class="tour-card">
+        <img src="zilkale1.jpeg" alt="Rize Ayder ve Zilkale turu" />
+        <div class="tour-body">
+          <h3 class="tour-title" data-i18n="tours.rize.title">Rize: Ayder Yaylası & Zilkale</h3>
+          <p class="tour-desc" data-i18n="tours.rize.desc">Fırtına Vadisi boyunca panoramik yolculuk, Zilkale ve Şenyuva Köprüsü, Ayder Yaylası’nda yürüyüş ve şelale manzaraları.</p>
+          <div class="badge-list">
+            <span class="badge" data-i18n="tours.badges.yayla">Yayla</span>
+            <span class="badge" data-i18n="tours.badges.manzara">Manzara</span>
+            <span class="badge" data-i18n="tours.badges.cay">Çay Bahçeleri</span>
+          </div>
+          <p class="tour-meta" data-i18n="tours.rize.meta">Önerilen duraklar: Fırtına Deresi – Zilkale – Şenyuva – Ayder</p>
+        </div>
+      </article>
+
+      <!-- Giresun - Ada & Kale -->
+      <article class="tour-card">
+        <img src="giresunkalesi.jpeg" alt="Giresun ada ve kale turu" />
+        <div class="tour-body">
+          <h3 class="tour-title" data-i18n="tours.giresun.title">Giresun: Ada & Kale Keşfi</h3>
+          <p class="tour-desc" data-i18n="tours.giresun.desc">Karadeniz’in tek adası olan Giresun Adası’na tekne ile yaklaşım imkânı, Giresun Kalesi ve şehir panoraması, sahil yürüyüş rotaları.</p>
+          <div class="badge-list">
+            <span class="badge" data-i18n="tours.badges.sehir">Şehir</span>
+            <span class="badge" data-i18n="tours.badges.kultur">Kültür</span>
+            <span class="badge" data-i18n="tours.badges.sahil">Sahil</span>
+          </div>
+          <p class="tour-meta" data-i18n="tours.giresun.meta">Önerilen duraklar: Giresun Kalesi – Adabaşı – Zeytinlik Evleri</p>
+        </div>
+      </article>
+
+      <!-- Artvin - Borçka Karagöl -->
+      <article class="tour-card">
+        <img src="karagolartvin.jpeg" alt="Artvin Borçka Karagöl turu" />
+        <div class="tour-body">
+          <h3 class="tour-title" data-i18n="tours.artvin.title">Artvin: Borçka Karagöl</h3>
+          <p class="tour-desc" data-i18n="tours.artvin.desc">Yoğun orman örtüsü ve cam gibi göl yüzeyi ile ünlü Karagöl’de doğa yürüyüşü ve fotoğraf molaları; dönüşte yöresel lezzet önerileri.</p>
+          <div class="badge-list">
+            <span class="badge" data-i18n="tours.badges.sakin">Sakin</span>
+            <span class="badge" data-i18n="tours.badges.milliPark">Milli Park</span>
+            <span class="badge" data-i18n="tours.badges.fotograf">Fotoğraf</span>
+          </div>
+          <p class="tour-meta" data-i18n="tours.artvin.meta">Önerilen duraklar: Karagöl – Klaskur Yaylası (opsiyonel)</p>
+        </div>
+      </article>
+
+      <!-- Ordu - Boztepe & Teleferik -->
+      <article class="tour-card">
+        <img src="orduteleferik.jpg" alt="Ordu Boztepe teleferik turu" />
+        <div class="tour-body">
+          <h3 class="tour-title" data-i18n="tours.ordu.title">Ordu: Boztepe & Teleferik</h3>
+          <p class="tour-desc" data-i18n="tours.ordu.desc">Şehir merkezinden teleferik ile Boztepe’ye çıkarak Karadeniz’i kuşbakışı izleyin; sahil yolunda serbest zaman ve fotoğraf molaları.</p>
+          <div class="badge-list">
+            <span class="badge" data-i18n="tours.badges.sehir">Şehir</span>
+            <span class="badge" data-i18n="tours.badges.manzara">Manzara</span>
+            <span class="badge" data-i18n="tours.badges.aktivite">Aktivite</span>
+          </div>
+          <p class="tour-meta" data-i18n="tours.ordu.meta">Önerilen duraklar: Teleferik – Boztepe – Sahil Bandı</p>
+        </div>
+      </article>
+
+      <!-- Rota: Hıdırnebi & Sera Gölü -->
+      <article class="tour-card">
+        <img src="seragolu2.png" alt="Trabzon Hıdırnebi Sera Gölü turu" />
+        <div class="tour-body">
+          <h3 class="tour-title" data-i18n="tours.hidirnebi.title">Trabzon: Hıdırnebi Yaylası & Sera Gölü</h3>
+          <p class="tour-desc" data-i18n="tours.hidirnebi.desc">Serin yayla havası ve göl kıyısında yürüyüş; seyir teraslarında fotoğraf molaları ve yerel ürün pazarlarında kısa alışveriş araları.</p>
+          <div class="badge-list">
+            <span class="badge" data-i18n="tours.badges.yayla">Yayla</span>
+            <span class="badge" data-i18n="tours.badges.doga">Doğa</span>
+            <span class="badge" data-i18n="tours.badges.gezinti">Gezinti</span>
+          </div>
+          <p class="tour-meta" data-i18n="tours.hidirnebi.meta">Önerilen duraklar: Hıdırnebi – Sera Gölü – Seyir Terasları</p>
+        </div>
+      </article>
+      </section>
+      <header>
+    <p class="info-note" data-i18n="tours.footer.note">Detaylı program ve rezervasyon için lütfen İletişim sayfasından bize ulaşın.</p>
+ </header>
+
+  <footer>
+    © 2025 Ganita Travel. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    const translations = {
+      tr: {
+        "nav.anasayfa":"Ana Sayfa",
+        "nav.bungalovlar":"Bungalovlar",
+        "nav.turlar":"Turlar",
+        "nav.nedenBiz":"Neden Biz?",
+        "nav.iletisim":"İletişim",
+
+        "tours.hero.title":"Günlük Karadeniz Turları",
+        "tours.hero.desc":"Aşağıda yer alan rotalar bilgilendirme amaçlıdır. İçerikler; güzergâh, öne çıkan noktalar ve önerileri içerir. Rezervasyon için lütfen iletişim sayfasını kullanın.",
+        "tours.hero.note":"Not: Bu sayfada fiyat bilgisi yer almaz.",
+        "tours.footer.note":"Detaylı program ve rezervasyon için lütfen İletişim sayfasından bize ulaşın.",
+
+        "tours.badges.tarih":"Tarih",
+        "tours.badges.doga":"Doğa",
+        "tours.badges.fotograf":"Fotoğraf",
+        "tours.badges.yayla":"Yayla",
+        "tours.badges.manzara":"Manzara",
+        "tours.badges.cay":"Çay Bahçeleri",
+        "tours.badges.sehir":"Şehir",
+        "tours.badges.kultur":"Kültür",
+        "tours.badges.sahil":"Sahil",
+        "tours.badges.sakin":"Sakin",
+        "tours.badges.milliPark":"Milli Park",
+        "tours.badges.aktivite":"Aktivite",
+        "tours.badges.gezinti":"Gezinti",
+
+        "tours.trabzon.title":"Trabzon: Sümela Manastırı & Uzungöl",
+        "tours.trabzon.desc":"Tarihin ve doğanın buluştuğu bir rota: Altındere Milli Parkı içinde Sümela Manastırı ziyareti, Çal Mağarası opsiyonu ve Uzungöl çevresinde yürüyüş molaları.",
+        "tours.trabzon.meta":"Önerilen duraklar: Sümela – Zigana Geçidi – Hamsiköy Sütlacı – Uzungöl Göl Çevresi",
+
+        "tours.rize.title":"Rize: Ayder Yaylası & Zilkale",
+        "tours.rize.desc":"Fırtına Vadisi boyunca panoramik yolculuk, Zilkale ve Şenyuva Köprüsü, Ayder Yaylası’nda yürüyüş ve şelale manzaraları.",
+        "tours.rize.meta":"Önerilen duraklar: Fırtına Deresi – Zilkale – Şenyuva – Ayder",
+
+        "tours.giresun.title":"Giresun: Ada & Kale Keşfi",
+        "tours.giresun.desc":"Karadeniz’in tek adası olan Giresun Adası’na tekne ile yaklaşım imkânı, Giresun Kalesi ve şehir panoraması, sahil yürüyüş rotaları.",
+        "tours.giresun.meta":"Önerilen duraklar: Giresun Kalesi – Adabaşı – Zeytinlik Evleri",
+
+        "tours.artvin.title":"Artvin: Borçka Karagöl",
+        "tours.artvin.desc":"Yoğun orman örtüsü ve cam gibi göl yüzeyi ile ünlü Karagöl’de doğa yürüyüşü ve fotoğraf molaları; dönüşte yöresel lezzet önerileri.",
+        "tours.artvin.meta":"Önerilen duraklar: Karagöl – Klaskur Yaylası (opsiyonel)",
+
+        "tours.ordu.title":"Ordu: Boztepe & Teleferik",
+        "tours.ordu.desc":"Şehir merkezinden teleferik ile Boztepe’ye çıkarak Karadeniz’i kuşbakışı izleyin; sahil yolunda serbest zaman ve fotoğraf molaları.",
+        "tours.ordu.meta":"Önerilen duraklar: Teleferik – Boztepe – Sahil Bandı",
+
+        "tours.hidirnebi.title":"Trabzon: Hıdırnebi Yaylası & Sera Gölü",
+        "tours.hidirnebi.desc":"Serin yayla havası ve göl kıyısında yürüyüş; seyir teraslarında fotoğraf molaları ve yerel ürün pazarlarında kısa alışveriş araları.",
+        "tours.hidirnebi.meta":"Önerilen duraklar: Hıdırnebi – Sera Gölü – Seyir Terasları"
+      },
+
+      en: {
+        "nav.anasayfa":"Home",
+        "nav.bungalovlar":"Bungalows",
+        "nav.turlar":"Tours",
+        "nav.nedenBiz":"Why Us?",
+        "nav.iletisim":"Contact",
+
+        "tours.hero.title":"Daily Black Sea Tours",
+        "tours.hero.desc":"The routes below are for information only. They include itinerary highlights and tips. Please use the Contact page for reservations.",
+        "tours.hero.note":"Note: No pricing is shown on this page.",
+        "tours.footer.note":"For detailed program and reservations, please reach us via the Contact page.",
+
+        "tours.badges.tarih":"History",
+        "tours.badges.doga":"Nature",
+        "tours.badges.fotograf":"Photography",
+        "tours.badges.yayla":"Plateau",
+        "tours.badges.manzara":"View",
+        "tours.badges.cay":"Tea Gardens",
+        "tours.badges.sehir":"City",
+        "tours.badges.kultur":"Culture",
+        "tours.badges.sahil":"Coast",
+        "tours.badges.sakin":"Calm",
+        "tours.badges.milliPark":"National Park",
+        "tours.badges.aktivite":"Activity",
+        "tours.badges.gezinti":"Stroll",
+
+        "tours.trabzon.title":"Trabzon: Sumela Monastery & Uzungöl",
+        "tours.trabzon.desc":"Where history meets nature: Visit Sumela in Altındere National Park, optional Çal Cave stop and lakeside walks at Uzungöl.",
+        "tours.trabzon.meta":"Suggested stops: Sumela – Zigana Pass – Hamsiköy Dessert – Uzungöl Lakeside",
+
+        "tours.rize.title":"Rize: Ayder Plateau & Zilkale",
+        "tours.rize.desc":"Panoramic drive through Fırtına Valley, Zilkale and Şenyuva Bridge, walking in Ayder with waterfall views.",
+        "tours.rize.meta":"Suggested stops: Fırtına River – Zilkale – Şenyuva – Ayder",
+
+        "tours.giresun.title":"Giresun: Island & Castle",
+        "tours.giresun.desc":"Approach Giresun Island by boat, visit Giresun Castle for city panorama, and enjoy coastal walking routes.",
+        "tours.giresun.meta":"Suggested stops: Giresun Castle – Island Viewpoint – Zeytinlik Houses",
+
+        "tours.artvin.title":"Artvin: Borçka Karagöl",
+        "tours.artvin.desc":"Lush forests and mirror-like lake surface. Nature walk and photo breaks; local cuisine tips on the way back.",
+        "tours.artvin.meta":"Suggested stops: Karagöl – Klaskur Plateau (optional)",
+
+        "tours.ordu.title":"Ordu: Boztepe & Cable Car",
+        "tours.ordu.desc":"Ride the cable car to Boztepe for a birds-eye view of the Black Sea; free time on the seaside boulevard.",
+        "tours.ordu.meta":"Suggested stops: Cable Car – Boztepe – Seaside Boulevard",
+
+        "tours.hidirnebi.title":"Trabzon: Hıdırnebi Plateau & Sera Lake",
+        "tours.hidirnebi.desc":"Cool plateau breeze and lakeside walk; photo breaks at viewpoints and short stops at local product stalls.",
+        "tours.hidirnebi.meta":"Suggested stops: Hıdırnebi – Sera Lake – Viewpoints"
+      },
+
+      ar: {
+        "nav.anasayfa":"الصفحة الرئيسية",
+        "nav.bungalovlar":"الأكواخ",
+        "nav.turlar":"الجولات",
+        "nav.nedenBiz":"لماذا نحن؟",
+        "nav.iletisim":"اتصل",
+
+        "tours.hero.title":"جولات يومية في البحر الأسود",
+        "tours.hero.desc":"المسارات أدناه للعلم فقط. تتضمن المعالم البارزة ونصائح الرحلة. للحجز يرجى استخدام صفحة الاتصال.",
+        "tours.hero.note":"ملاحظة: لا توجد أسعار في هذه الصفحة.",
+        "tours.footer.note":"لبرنامج مفصل والحجز، تواصل معنا عبر صفحة الاتصال.",
+
+        "tours.badges.tarih":"تاريخ",
+        "tours.badges.doga":"طبيعة",
+        "tours.badges.fotograf":"تصوير",
+        "tours.badges.yayla":"هضبة",
+        "tours.badges.manzara":"منظر",
+        "tours.badges.cay":"حدائق الشاي",
+        "tours.badges.sehir":"مدينة",
+        "tours.badges.kultur":"ثقافة",
+        "tours.badges.sahil":"ساحل",
+        "tours.badges.sakin":"هادئ",
+        "tours.badges.milliPark":"حديقة وطنية",
+        "tours.badges.aktivite":"نشاط",
+        "tours.badges.gezinti":"نزهة",
+
+        "tours.trabzon.title":"طرابزون: دير سوميلا & أوزونغول",
+        "tours.trabzon.desc":"حيث يلتقي التاريخ بالطبيعة: زيارة دير سوميلا داخل حديقة ألتينديره الوطنية، والتوقف الاختياري في كهف تشال، ومشي حول بحيرة أوزونغول.",
+        "tours.trabzon.meta":"محطات مقترحة: سوميلا – ممر زيغانا – حلوى هامسيكوي – ضفاف أوزونغول",
+
+        "tours.rize.title":"ريزه: هضبة آيدر & زيلكالي",
+        "tours.rize.desc":"قيادة بانورامية عبر وادي فِرطِنة، وزيارة زيلكالي وجسر شنيوفا، والمشي في آيدر مع إطلالات الشلالات.",
+        "tours.rize.meta":"محطات مقترحة: نهر فِرطِنة – زيلكالي – شنيوفا – آيدر",
+
+        "tours.giresun.title":"جيرسون: الجزيرة & القلعة",
+        "tours.giresun.desc":"الاقتراب بالقارب من جزيرة جيرسون، وزيارة القلعة لمشاهدة بانوراما المدينة، والاستمتاع بمسارات المشي الساحلية.",
+        "tours.giresun.meta":"محطات مقترحة: قلعة جيرسون – إطلالة الجزيرة – بيوت زيتينلك",
+
+        "tours.artvin.title":"أرتڤين: بورتشكا كاراغول",
+        "tours.artvin.desc":"غابات كثيفة وسطح بحيرة يشبه المرآة. تنزه في الطبيعة واستراحات للتصوير؛ واقتراحات للمأكولات المحلية في طريق العودة.",
+        "tours.artvin.meta":"محطات مقترحة: كاراغول – هضبة كلاسقور (اختياري)",
+
+        "tours.ordu.title":"أوردو: بوزتبة & التلفريك",
+        "tours.ordu.desc":"اركب التلفريك إلى بوزتبة لمشاهدة البحر الأسود من الأعلى؛ وقت حر على الواجهة البحرية.",
+        "tours.ordu.meta":"محطات مقترحة: التلفريك – بوزتبة – الواجهة البحرية",
+
+        "tours.hidirnebi.title":"طرابزون: هضبة حضيرنبي & بحيرة سيرا",
+        "tours.hidirnebi.desc":"نسيم الهضبة البارد ومشي على ضفاف البحيرة؛ توقفات تصوير عند نقاط المشاهدة واستراحات قصيرة في أسواق المنتجات المحلية.",
+        "tours.hidirnebi.meta":"محطات مقترحة: حضيرنبي – بحيرة سيرا – نقاط المشاهدة"
+      }
+    };
+
+    const langSelector = document.getElementById('langSelector');
+    ['tr','en','ar'].forEach(code => {
+      const btn = document.createElement('button');
+      btn.textContent = code.toUpperCase();
+      btn.addEventListener('click', () => setLanguage(code));
+      langSelector.appendChild(btn);
+    });
+
+    function setLanguage(lang){
+      localStorage.setItem('siteLang', lang);
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+      document.querySelectorAll('#langSelector button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+      });
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(translations[lang] && translations[lang][key]){
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('siteLang') || 'tr';
+      setLanguage(saved);
+    });
+  </script>
+</body>
+</html>

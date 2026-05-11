@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganita Travel - Karadeniz Tatili</title>
+  <meta name="description" content="Şirket İsmi: Trabzon, Rize ve Giresun'da doğayla iç içe bungalov tatili ve günlük Karadeniz turları sunar. Havalimanına 5 dakika uzaklıkta huzur dolu bir tatil sizi bekliyor." />
+  <meta name="keywords" content="Şirket İsmi, Trabzon bungalov, Karadeniz turları, Rize gezisi, Giresun adası, doğa tatili, havalimanı yakın tatil, kahvaltılı bungalov" />
+  <meta name="author" content="Şirket İsmi" />
+
+  
+  <meta property="og:title" content="(Şirket İsmi) - Karadeniz Tatili" />
+  <meta property="og:description" content="Trabzon, Rize ve Giresun'da doğayla iç içe bungalov tatili ve günlük Karadeniz turları." />
+  <meta property="og:image" content="bungalov1.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --accent: #e10600;
+      --bg-card: #111;
+      --bg-overlay: rgba(0,0,0,0.6);
+      --text: #fff;
+      --muted: #ccc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: url('backgraund.jpg') no-repeat center top scroll;
+      background-size: cover;
+    }
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      gap: 1rem;
+      backdrop-filter: saturate(120%) blur(6px);
+    }
+    .logo { font-weight: 700; letter-spacing: .5px; }
+    nav { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    nav a {
+      color: white; text-decoration: none; font-weight: 500; transition: color .3s;
+    }
+    nav a:hover, nav a.active { color: var(--accent); }
+    #langSelector { display: flex; gap: .5rem; }
+    #langSelector button {
+      color: #fff; background: transparent; border: 1px solid rgba(255,255,255,.2);
+      cursor: pointer; font-weight: 700; font-size: 12px; padding: 6px 10px; border-radius: 10px; transition: all .25s;
+    }
+    #langSelector button:hover, #langSelector button.active { background: var(--accent); border-color: var(--accent); }
+
+    .hero {
+      min-height: 100vh; background: rgba(0,0,0,0.55);
+      display: grid; place-items: center; text-align: center; padding: 6rem 1rem 4rem;
+    }
+    .hero-inner { max-width: 900px; margin-inline: auto; }
+    .hero h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin: 0 0 1rem; color: var(--accent); }
+    .hero p { font-size: clamp(1rem, 1.6vw, 1.25rem); margin: 0 auto; max-width: 650px; line-height: 1.6; }
+    .hero a.btn {
+      margin-top: 2rem; display: inline-block; padding: 0.9rem 1.6rem; background: var(--accent); color: #fff; text-decoration: none; border-radius: 999px; font-weight: 700; box-shadow: 0 8px 20px rgba(225,6,0,.25);
+    }
+
+    .section { padding: 4rem 2rem; background: var(--bg-overlay); }
+    .section h2 { text-align: center; font-size: 2rem; margin: 0 0 2rem; color: var(--accent); }
+
+    .bungalov-gallery { display: flex; justify-content: center; overflow-x: auto; gap: 2rem; padding: 1rem; scroll-snap-type: x mandatory; }
+    .bungalov-card { min-width: 280px; max-width: 340px; background: var(--bg-card); border-radius: 14px; overflow: hidden; box-shadow: 0 0 10px rgba(255,255,255,0.08); scroll-snap-align: start; flex-shrink: 0; }
+    .bungalov-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .bungalov-card .content { padding: 1rem; min-height: 120px; display: flex; flex-direction: column; gap: .5rem; }
+    .bungalov-card .content h3 { color: var(--accent); margin: 0; font-size: 1.05rem; }
+    .bungalov-card .content p { margin: 0; font-size: .95rem; line-height: 1.4rem; color: #eaeaea; }
+
+    .turlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+    .tur-box { background: var(--bg-card); padding: 1rem; border-radius: 14px; text-align: center; box-shadow: 0 0 10px rgba(255,255,255,0.08); }
+    .tur-box img { width: 100%; border-radius: 10px; height: 180px; object-fit: cover; }
+    .tur-box h4 { margin: 1rem 0 .5rem; color: var(--accent); font-size: 1.05rem; }
+    .tur-box p { margin: 0; color: #eaeaea; font-size: .95rem; }
+
+    .why-choose { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .why-card { background: var(--bg-card); padding: 1.25rem; border-radius: 14px; box-shadow: 0 0 10px rgba(255,255,255,0.08); }
+    .why-card h3 { margin: 0 0 .5rem; color: var(--accent); font-size: 1.05rem; }
+    .why-card p { margin: 0; color: #eaeaea; font-size: .95rem; line-height: 1.5; }
+    .video-container { text-align: center; margin-top: 2rem; }
+    .video-container video { width: min(900px, 92vw); height: auto; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,.4); }
+    footer { padding: 2rem; background: rgba(0,0,0,0.85); text-align: center; color: var(--muted); }
+    html[dir="rtl"] body { direction: rtl; }
+    html[dir="rtl"] header, html[dir="rtl"] .turlar, html[dir="rtl"] .why-choose { direction: rtl; }
+    html[dir="rtl"] nav { flex-direction: row-reverse; }
+    html[dir="rtl"] .hero-inner, html[dir="rtl"] .section h2, html[dir="rtl"] .tur-box, html[dir="rtl"] .why-card { text-align: right; }
+
+    @media (max-width: 1024px) {
+      .why-choose { grid-template-columns: repeat(2, 1fr); }
+      .turlar { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero p { font-size: 1rem; }
+      header { flex-wrap: wrap; }
+      nav { justify-content: center; width: 100%; }
+      nav a { margin: .25rem .5rem; }
+      .why-choose { grid-template-columns: 1fr; }
+      .turlar { grid-template-columns: 1fr; }
+      .bungalov-gallery { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="color:red" class="logo">Şirket İsmi</div>
+    <nav>
+      <a href="bungalovlar2.html" data-i18n="nav.bungalovlar">Bungalovlar</a>
+      <a href="turlar.html" data-i18n="nav.turlar">Turlar</a>
+      <a href="hakkimizda.html" data-i18n="nav.nedenBiz">Neden Biz?</a>
+      <a href="iletisim.html" data-i18n="nav.iletisim">İletişim</a>
+    </nav>
+    <div id="langSelector"></div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 data-i18n="home.hero.title">Doğanın içinde, konforun kalbinde</h1>
+      <p data-i18n="home.hero.desc">Trabzon'un eşsiz doğasında, kahvaltılı bungalovlar ve Karadeniz turları sizi bekliyor.</p>
+      <a class="btn" href="bungalovlar2.html" data-i18n="home.hero.button">Keşfet</a>
+    </div>
+  </section>
+
+  <!-- Bungalovlar -->
+  <section class="section" id="bungalov">
+    <h2 data-i18n="bungalov.title">Bungalovlarımız</h2>
+    <div class="bungalov-gallery">
+      <div class="bungalov-card">
+        <img src="bungalov1.jpg" alt="1+1 Bungalov" />
+        <div class="content">
+          <h3 data-i18n="bungalov.onePlusOne.title">Konforlu 1+1 Bungalovlar</h3>
+          <p data-i18n="bungalov.onePlusOne.desc">Jakuzili, üst katında tek odalı huzurlu konaklama.</p>
+        </div>
+      </div>
+      <div class="bungalov-card">
+        <img src="2-1bungalov.png" alt="2+1 Bungalov" />
+        <div class="content">
+          <h3 data-i18n="bungalov.twoPlusOne.title">Geniş 2+1 Aile Bungalovları</h3>
+          <p data-i18n="bungalov.twoPlusOne.desc">İki odalı, aileler için ideal geniş yaşam alanı.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Turlar -->
+  <section class="section" id="turlar">
+    <h2 data-i18n="turlar.title">Günlük Turlar</h2>
+    <div class="turlar">
+      <div class="tur-box">
+        <img src="uzungolanasayfa.jpg" alt="Trabzon turu görseli" />
+        <h4 data-i18n="turlar.trabzon.title">Trabzon Doğa ve Tarih Turu</h4>
+        <p data-i18n="turlar.trabzon.desc">Sümela, Uzungöl ve tarihi sokaklar sizi bekliyor.</p>
+      </div>
+      <div class="tur-box">
+        <img src="rizeanasayfa.jpg" alt="Rize turu görseli" />
+        <h4 data-i18n="turlar.rize.title">Rize Yayla ve Şelale Keyfi</h4>
+        <p data-i18n="turlar.rize.desc">Ayder Yaylası, Zilkale ve çay bahçeleriyle unutulmaz bir gün.</p>
+      </div>
+      <div class="tur-box">
+        <img src="giresunanasayfa.jpg" alt="Giresun turu görseli" />
+        <h4 data-i18n="turlar.giresun.title">Mükemmel Doğa Kaçamağı</h4>
+        <p data-i18n="turlar.giresun.desc">Yaylalar ve şelalelerle doğanın tadını çıkarın.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Neden Biz -->
+  <section class="section" id="neden">
+    <div class="why-choose">
+      <div class="why-card">
+        <h3 data-i18n="neden.dogaylaUyum.title">Doğayla Uyum</h3>
+        <p data-i18n="neden.dogaylaUyum.desc">Ormanın içinde sessiz, temiz hava ve yıldızlı geceler.</p>
+      </div>
+      <div class="why-card">
+        <h3 data-i18n="neden.havalimaninaYakinlik.title">Havalimanına Yakınlık</h3>
+        <p data-i18n="neden.havalimaninaYakinlik.desc">Trabzon Havalimanı'na sadece 5 dakika mesafede.</p>
+      </div>
+      <div class="why-card">
+        <h3 data-i18n="neden.karadenizTurlari.title">Karadeniz Turları</h3>
+        <p data-i18n="neden.karadenizTurlari.desc">Trabzon, Rize, Giresun’a özel günlük turlar ile dolu dolu tatil.</p>
+      </div>
+      <div class="why-card">
+        <h3 data-i18n="neden.vipTransfer.title">VIP Transfer Hizmeti</h3>
+        <p data-i18n="neden.vipTransfer.desc">Sizi havalimanından belli bir ücret karşılığı VIP araçlarımız ile bungalovlarımıza transfer ediyoruz.</p>
+      </div>
+    </div>
+    <div class="video-container">
+      <video controls>
+        <source src="tanıtım.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Ganita Travel. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    const translations = {
+      tr: {
+        "nav.bungalovlar": "Bungalovlar",
+        "nav.turlar": "Turlar",
+        "nav.iletisim": "İletişim",
+        "home.hero.title": "Doğanın içinde, konforun kalbinde",
+        "home.hero.desc": "Trabzon'un eşsiz doğasında, kahvaltılı bungalovlar ve Karadeniz turları sizi bekliyor.",
+        "home.hero.button": "Keşfet",
+        "bungalov.title": "Bungalovlarımız",
+        "bungalov.onePlusOne.title": "Konforlu 1+1 Bungalovlar",
+        "bungalov.onePlusOne.desc": "Jakuzili, üst katında tek odalı huzurlu konaklama.",
+        "bungalov.twoPlusOne.title": "Geniş 2+1 Aile Bungalovları",
+        "bungalov.twoPlusOne.desc": "İki odalı, aileler için ideal geniş yaşam alanı.",
+        "turlar.title": "Günlük Turlar",
+        "turlar.trabzon.title": "Trabzon Doğa ve Tarih Turu",
+        "turlar.trabzon.desc": "Sümela, Uzungöl ve tarihi sokaklar sizi bekliyor.",
+        "turlar.rize.title": "Rize Yayla ve Şelale Keyfi",
+        "turlar.rize.desc": "Ayder Yaylası, Zilkale ve çay bahçeleriyle unutulmaz bir gün.",
+        "turlar.giresun.title": "Mükemmel Doğa Kaçamağı",
+        "turlar.giresun.desc": "Yaylalar ve şelalelerle doğanın tadını çıkarın.",
+        "neden.title": "Neden Ganita Travel?",
+        "neden.dogaylaUyum.title": "Doğayla Uyum",
+        "neden.dogaylaUyum.desc": "Ormanın içinde sessiz, temiz hava ve yıldızlı geceler.",
+        "neden.havalimaninaYakinlik.title": "Havalimanına Yakınlık",
+        "neden.havalimaninaYakinlik.desc": "Trabzon Havalimanı'na sadece 5 dakika mesafede.",
+        "neden.karadenizTurlari.title": "Karadeniz Turları",
+        "neden.karadenizTurlari.desc": "Trabzon, Rize, Giresun’a özel günlük turlar ile dolu dolu tatil.",
+        "neden.vipTransfer.title": "VIP Transfer Hizmeti",
+        "neden.vipTransfer.desc": "Sizi havalimanından belli bir ücret karşılığı VIP araçlarımız ile bungalovlarımıza transfer ediyoruz."
+      },
+      en: {
+        "nav.bungalovlar": "Bungalows",
+        "nav.turlar": "Tours",
+        "nav.iletisim": "Contact",
+        "home.hero.title": "In the heart of comfort, within nature",
+        "home.hero.desc": "In Trabzon's unique nature, bungalows with breakfast and Black Sea tours await you.",
+        "home.hero.button": "Discover",
+        "bungalov.title": "Our Bungalows",
+        "bungalov.onePlusOne.title": "Comfortable 1+1 Bungalows",
+        "bungalov.onePlusOne.desc": "With jacuzzi, peaceful single-room accommodation upstairs.",
+        "bungalov.twoPlusOne.title": "Spacious 2+1 Family Bungalows",
+        "bungalov.twoPlusOne.desc": "Two rooms, ideal spacious living area for families.",
+        "turlar.title": "Daily Tours",
+        "turlar.trabzon.title": "Trabzon Nature and History Tour",
+        "turlar.trabzon.desc": "Sümela, Uzungöl and historic streets await you.",
+        "turlar.rize.title": "Rize Plateau and Waterfall Pleasure",
+        "turlar.rize.desc": "Unforgettable day with Ayder Plateau, Zilkale and tea gardens.",
+        "turlar.giresun.title": "Perfect Nature Getaway",
+        "turlar.giresun.desc": "Enjoy nature with plateaus and waterfalls.",
+        "neden.title": "Why Ganita Travel?",
+        "neden.dogaylaUyum.title": "Harmony with Nature",
+        "neden.dogaylaUyum.desc": "Quiet in the forest, fresh air and starry nights.",
+        "neden.havalimaninaYakinlik.title": "Close to Airport",
+        "neden.havalimaninaYakinlik.desc": "Only 5 minutes away from Trabzon Airport.",
+        "neden.karadenizTurlari.title": "Black Sea Tours",
+        "neden.karadenizTurlari.desc": "Full-packed daily tours to Trabzon, Rize, Giresun.",
+        "neden.vipTransfer.title": "VIP Transfer Service",
+        "neden.vipTransfer.desc": "We provide transfers from the airport to our bungalows with our VIP vehicles for a fee."
+      },
+      ar: {
+        "nav.bungalovlar": "الأكواخ",
+        "nav.turlar": "الجولات",
+        "nav.iletisim": "اتصل",
+        "home.hero.title": "في قلب الراحة داخل الطبيعة",
+        "home.hero.desc": "في طبيعة طرابزون الفريدة، تنتظرك الأكواخ مع الإفطار وجولات البحر الأسود.",
+        "home.hero.button": "اكتشف",
+        "bungalov.title": "الأكواخ لدينا",
+        "bungalov.onePlusOne.title": "أكواخ مريحة 1+1",
+        "bungalov.onePlusOne.desc": "مع جاكوزي، إقامة هادئة بغرفة واحدة في الطابق العلوي.",
+        "bungalov.twoPlusOne.title": "أكواخ عائلية واسعة 2+1",
+        "bungalov.twoPlusOne.desc": "غرفتان، مساحة معيشة واسعة مثالية للعائلات.",
+        "turlar.title": "الجولات اليومية",
+        "turlar.trabzon.title": "جولة طبيعية وتاريخية في طرابزون",
+        "turlar.trabzon.desc": "تنتظرك سوميلا، أوزونجول والشوارع التاريخية.",
+        "turlar.rize.title": "متعة الهضبة والشلال في ريزه",
+        "turlar.rize.desc": "يوم لا يُنسى مع هضبة أيدر، زيلكالي وحدائق الشاي.",
+        "turlar.giresun.title": "ملاذ الطبيعة المثالي",
+        "turlar.giresun.desc": "استمتع بالطبيعة مع الهضاب والشلالات.",
+        "neden.title": "لماذا Ganita Travel؟",
+        "neden.dogaylaUyum.title": "التناغم مع الطبيعة",
+        "neden.dogaylaUyum.desc": "هادئ في الغابة، هواء نقي وليالي مليئة بالنجوم.",
+        "neden.havalimaninaYakinlik.title": "قرب المطار",
+        "neden.havalimaninaYakinlik.desc": "على بعد 5 دقائق فقط من مطار طرابزون.",
+        "neden.karadenizTurlari.title": "جولات البحر الأسود",
+        "neden.karadenizTurlari.desc": "جولات يومية مليئة بالأنشطة إلى طرابزون، ريزه، غيرسون.",
+        "neden.vipTransfer.title": "خدمة النقل VIP",
+        "neden.vipTransfer.desc": "نوفر نقل من المطار إلى الأكواخ لدينا بسيارات VIP مقابل رسوم."
+      }
+    };
+
+    const langSelector = document.getElementById('langSelector');
+    ['tr','en','ar'].forEach(code => {
+      const btn = document.createElement('button');
+      btn.textContent = code.toUpperCase();
+      btn.addEventListener('click', () => setLanguage(code));
+      langSelector.appendChild(btn);
+    });
+
+    function setLanguage(lang) {
+      localStorage.setItem('siteLang', lang);
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('#langSelector button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+      });
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if(translations[lang] && translations[lang][key]){
+          el.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('siteLang') || 'tr';
+      setLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

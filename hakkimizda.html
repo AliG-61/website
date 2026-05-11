@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganita Travel - Neden Biz?</title>
+  <meta name="description" content="Şirketimizi tercih etmeniz için nedenler: Güvenilir hizmet, deneyim, müşteri memnuniyeti ve Karadeniz'de benzersiz tatil deneyimi." />
+  <meta name="keywords" content="Şirket İsmi, Neden Biz, Trabzon turizm, Karadeniz tatili, bungalov, turlar" />
+  <meta name="author" content="Ganita Travel" />
+  <style>
+    :root {
+      --accent: #e10600;
+      --bg: #111;
+      --text: #fff;
+      --muted: #aaa;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0,0,0,0.85);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.2rem;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: var(--accent);
+    }
+    #langSelector {
+      display: flex;
+      gap: .5rem;
+    }
+    #langSelector button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all .25s;
+    }
+    #langSelector button.active, 
+    #langSelector button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 14px;
+      box-shadow: 0 0 10px rgba(0,0,0,.4);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 0.9rem 1.6rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 999px;
+      box-shadow: 0 8px 20px rgba(225,6,0,.25);
+      transition: background .3s;
+    }
+    .cta a:hover {
+      background: #b00500;
+    }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      background: rgba(0,0,0,0.9);
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Şirket İsmi</div>
+    <nav>
+      <a href="index.html" data-key="nav.home">Ana Sayfa</a>
+      <a href="bungalovlar.html" data-key="nav.bungalovlar">Bungalovlar</a>
+      <a href="turlar.html" data-key="nav.turlar">Turlar</a>
+      <a href="nedenbiz.html" class="active" data-key="nav.nedenBiz">Neden Biz?</a>
+      <a href="iletisim.html" data-key="nav.iletisim">İletişim</a>
+    </nav>
+    <div id="langSelector"></div>
+  </header>
+
+  <section class="hero">
+    <h1 data-key="hero.title">Neden Şirket İsmi?</h1>
+    <p data-key="hero.desc">Karadeniz’in eşsiz doğasında, güvenilir hizmet, deneyimli ekip ve müşteri memnuniyetiyle unutulmaz bir tatil için buradayız.</p>
+  </section>
+
+  <section>
+    <h2 data-key="mission.title">Misyon & Vizyon</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 data-key="mission.missionTitle">Misyonumuz</h3>
+        <p data-key="mission.missionText">Doğayla iç içe konaklama deneyimleri sunmak, misafirlerimizin huzurlu ve keyifli tatil geçirmelerini sağlamak.</p>
+      </div>
+      <div class="card">
+        <h3 data-key="mission.visionTitle">Vizyonumuz</h3>
+        <p data-key="mission.visionText">Karadeniz’in en güvenilir ve tercih edilen turizm markalarından biri olmak.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-key="why.title">Neden Bizi Seçmelisiniz?</h2>
+    <div class="grid grid-3">
+      <div class="card">
+        <h3 data-key="why.trustTitle">Güvenilirlik</h3>
+        <p data-key="why.trustText">Turizm Bakanlığı işletme onaylı ve TÜRSAB belgeli şirketimizle, legal ve üst düzey güvenilirlik sunuyoruz.</p>
+      </div>
+      <div class="card">
+        <h3 data-key="why.experienceTitle">Deneyim</h3>
+        <p data-key="why.experienceText">Bölgeyi en iyi bilen ekibimizle en özel rotaları keşfedin.</p>
+      </div>
+      <div class="card">
+        <h3 data-key="why.satisfactionTitle">Müşteri Memnuniyeti</h3>
+        <p data-key="why.satisfactionText">Misafirlerimizin mutluluğu bizim için her şeyden önemli.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-key="values.title">Değerlerimiz</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3 data-key="values.natureTitle">Doğaya Saygı</h3>
+        <p data-key="values.natureText">Doğal kaynakları koruyarak sürdürülebilir turizm anlayışını benimsiyoruz.</p>
+      </div>
+      <div class="card">
+        <h3 data-key="values.hospitalityTitle">Samimiyet</h3>
+        <p data-key="values.hospitalityText">Misafirlerimizi evinde gibi hissettiren sıcak bir yaklaşım sunuyoruz.</p>
+      </div>
+    </div>
+    <div class="cta">
+      <a href="iletisim.html" data-key="cta.contact">Bizimle İletişime Geç</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Ganita Travel. Tüm hakları saklıdır.
+  </footer>
+
+  <script>
+    const translations = {
+      tr: {
+        "nav.home": "Ana Sayfa",
+        "nav.bungalovlar": "Bungalovlar",
+        "nav.turlar": "Turlar",
+        "nav.nedenBiz": "Neden Biz?",
+        "nav.iletisim": "İletişim",
+        "hero.desc": "Karadeniz’in eşsiz doğasında, güvenilir hizmet, deneyimli ekip ve müşteri memnuniyetiyle unutulmaz bir tatil için buradayız.",
+        "mission.title": "Misyon & Vizyon",
+        "mission.missionTitle": "Misyonumuz",
+        "mission.missionText": "Doğayla iç içe konaklama deneyimleri sunmak, misafirlerimizin huzurlu ve keyifli tatil geçirmelerini sağlamak.",
+        "mission.visionTitle": "Vizyonumuz",
+        "mission.visionText": "Karadeniz’in en güvenilir ve tercih edilen turizm markalarından biri olmak.",
+        "why.title": "Neden Bizi Seçmelisiniz?",
+        "why.trustTitle": "Güvenilirlik",
+        "why.trustText": "Turizm Bakanlığı işletme onaylı ve TÜRSAB belgeli şirketimizle, legal ve üst düzey güvenilirlik sunuyoruz.",
+        "why.experienceTitle": "Deneyim",
+        "why.experienceText": "Bölgeyi en iyi bilen ekibimizle en özel rotaları keşfedin.",
+        "why.satisfactionTitle": "Müşteri Memnuniyeti",
+        "why.satisfactionText": "Misafirlerimizin mutluluğu bizim için her şeyden önemli.",
+        "values.title": "Değerlerimiz",
+        "values.natureTitle": "Doğaya Saygı",
+        "values.natureText": "Doğal kaynakları koruyarak sürdürülebilir turizm anlayışını benimsiyoruz.",
+        "values.hospitalityTitle": "Samimiyet",
+        "values.hospitalityText": "Misafirlerimizi evinde gibi hissettiren sıcak bir yaklaşım sunuyoruz.",
+        "cta.contact": "Bizimle İletişime Geç"
+      },
+      en: {
+        "nav.home": "Home",
+        "nav.bungalovlar": "Bungalows",
+        "nav.turlar": "Tours",
+        "nav.nedenBiz": "Why Us?",
+        "nav.iletisim": "Contact",
+        "hero.desc": "In the unique nature of the Black Sea, we are here for an unforgettable holiday with reliable service, experienced team and customer satisfaction.",
+        "mission.title": "Mission & Vision",
+        "mission.missionTitle": "Our Mission",
+        "mission.missionText": "To offer accommodation experiences in harmony with nature, ensuring our guests have a peaceful and enjoyable holiday.",
+        "mission.visionTitle": "Our Vision",
+        "mission.visionText": "To become one of the most reliable and preferred tourism brands in the Black Sea.",
+        "why.title": "Why Choose Us?",
+        "why.trustTitle": "Reliability",
+        "why.trustText": "As a company approved by the Ministry of Tourism and certified by TÜRSAB, we provide legal and top-level reliability.",
+        "why.experienceTitle": "Experience",
+        "why.experienceText": "Discover the most special routes with our team who knows the region best.",
+        "why.satisfactionTitle": "Customer Satisfaction",
+        "why.satisfactionText": "The happiness of our guests is the most important thing for us.",
+        "values.title": "Our Values",
+        "values.natureTitle": "Respect for Nature",
+        "values.natureText": "We adopt a sustainable tourism approach by protecting natural resources.",
+        "values.hospitalityTitle": "Hospitality",
+        "values.hospitalityText": "We offer a warm approach that makes our guests feel at home.",
+        "cta.contact": "Contact Us"
+      },
+      ar: {
+        "nav.home": "الرئيسية",
+        "nav.bungalovlar": "الأكواخ",
+        "nav.turlar": "الجولات",
+        "nav.iletisim": "اتصل بنا",
+        "hero.title": "لماذا  Şirket İsmi؟",
+        "hero.desc": "في طبيعة البحر الأسود الفريدة، نحن هنا من أجل عطلة لا تُنسى بخدمة موثوقة وفريق ذو خبرة ورضا العملاء.",
+        "mission.title": "مهمتنا ورؤيتنا",
+        "mission.missionTitle": "مهمتنا",
+        "mission.missionText": "تقديم تجارب إقامة متناغمة مع الطبيعة، لضمان أن يقضي ضيوفنا عطلة هادئة وممتعة.",
+        "mission.visionTitle": "رؤيتنا",
+        "mission.visionText": "أن نصبح من أكثر العلامات السياحية موثوقية وتفضيلاً في البحر الأسود.",
+        "why.title": "لماذا تختارنا؟",
+        "why.trustTitle": "الموثوقية",
+        "why.trustText": "بصفتنا شركة معتمدة من وزارة السياحة ومرخصة من TÜRSAB، نقدم موثوقية قانونية وعلى أعلى مستوى.",
+        "why.experienceTitle": "الخبرة",
+        "why.experienceText": "اكتشف أجمل المسارات مع فريقنا الذي يعرف المنطقة أفضل.",
+        "why.satisfactionTitle": "رضا العملاء",
+        "why.satisfactionText": "سعادة ضيوفنا هي أهم شيء بالنسبة لنا.",
+        "values.title": "قيمنا",
+        "values.natureTitle": "احترام الطبيعة",
+        "values.natureText": "نتبنى نهج السياحة المستدامة من خلال حماية الموارد الطبيعية.",
+        "values.hospitalityTitle": "الضيافة",
+        "values.hospitalityText": "نقدم أسلوبًا دافئًا يجعل ضيوفنا يشعرون وكأنهم في منازلهم.",
+        "cta.contact": "تواصل معنا"
+      }
+    };
+
+    const langSelector = document.getElementById('langSelector');
+    ['tr','en','ar'].forEach(code => {
+      const btn = document.createElement('button');
+      btn.textContent = code.toUpperCase();
+      btn.addEventListener('click', () => setLanguage(code));
+      langSelector.appendChild(btn);
+    });
+
+    function setLanguage(lang) {
+      localStorage.setItem('siteLang', lang);
+      document.documentElement.lang = lang;
+      document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+
+      document.querySelectorAll('#langSelector button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+      });
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if(translations[lang] && translations[lang][key]){
+          el.textContent = translations[lang][key];
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('siteLang') || 'tr';
+      setLanguage(savedLang);
+    });
+  </script>
+</body>
+</html>

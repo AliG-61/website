@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ganita Travel - Bungalovlar</title>
+  <style>
+    :root {
+      --accent: #e10600;
+      --bg-card: #111;
+      --bg-overlay: rgba(0,0,0,0.6);
+      --text: #fff;
+      --muted: #ccc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: url('background2.png') no-repeat center top scroll;
+      background-size: cover;
+    }
+    header {
+      background: rgba(0,0,0,0.7);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      gap: 1rem;
+      backdrop-filter: saturate(120%) blur(6px);
+    }
+    .logo { font-weight: 700; letter-spacing: .5px; color: var(--accent); }
+    nav { display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    nav a {
+      color: white; text-decoration: none; font-weight: 500; transition: color .3s;
+    }
+    nav a:hover, nav a.active { color: var(--accent); }
+    #langSelector { display: flex; gap: .5rem; }
+    #langSelector button {
+      color: #fff; background: transparent; border: 1px solid rgba(255,255,255,.2);
+      cursor: pointer; font-weight: 700; font-size: 12px; padding: 6px 10px; border-radius: 10px; transition: all .25s;
+    }
+    #langSelector button:hover { background: var(--accent); border-color: var(--accent); }
+    #langSelector button.active { background: var(--accent); border-color: var(--accent); color:#fff; }
+
+    main {
+      background: var(--bg-overlay);
+      max-width: 1100px;
+      margin: 2rem auto;
+      border-radius: 14px;
+      padding: 2rem;
+    }
+    h1, h2, h3 { color: var(--accent); }
+
+    /* 10 Bungalov Butonları */
+    .bungalov-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .bungalov-button {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--text);
+      width: 200px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg-card);
+      box-shadow: 0 0 10px rgba(255,255,255,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .bungalov-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+    .bungalov-button img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .bungalov-caption {
+      padding: 0.75rem;
+      font-weight: 600;
+      text-align: center;
+      color: var(--accent);
+    }
+
+    /* Ekstra Bilgiler ve FAQ */
+    .info-section, .faq-item {
+      background: var(--bg-card);
+      border-radius: 14px;
+      padding: 1rem;
+      box-shadow: 0 0 10px rgba(255,255,255,0.08);
+      margin-top: 2rem;
+    }
+    .faq h3 { margin-bottom: 1rem; }
+    .faq-item strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    .faq-item p { margin: 0; line-height: 1.5rem; color: #eaeaea; }
+
+    footer {
+      padding: 2rem;
+      background: rgba(0,0,0,0.85);
+      text-align: center;
+      color: var(--muted);
+      margin-top: 4rem;
+    }
+
+    html[dir="rtl"] body { direction: rtl; }
+    html[dir="rtl"] header, html[dir="rtl"] main { direction: rtl; }
+    html[dir="rtl"] nav { flex-direction: row-reverse; }
+
+    @media (max-width: 768px) {
+      .bungalov-container { flex-direction: column; align-items: center; }
+      .bungalov-button { width: 90%; margin-bottom: 1rem; }
+      main { margin: 1rem; padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">Şirket İsmi</div>
+  <nav>
+    <a href="index.html" data-i18n="nav.home">Anasayfa</a>
+    <a href="turlar.html" data-i18n="nav.turlar">Turlar</a>
+    <a href="hakkimizda.html" data-i18n="nav.nedenBiz">Neden Biz?</a>
+    <a href="iletisim.html" data-i18n="nav.iletisim">İletişim</a>
+  </nav>
+  <div id="langSelector"></div>
+</header>
+
+<main>
+  <h1 style="text-align: center;" data-i18n="bungalov.title">Bungalovlarımız</h1>
+
+  <!-- 10 Bungalov Butonları -->
+  <div class="bungalov-container">
+    <a href="1bungalov.html" class="bungalov-button">
+      <img src="resimler/1bungalov.jpg" alt="Bungalov 1">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="2bungalov.html" class="bungalov-button">
+      <img src="resimler/2bungalov.jpg" alt="Bungalov 2">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="3bungalov.html" class="bungalov-button">
+      <img src="resimler/3bungalov.jpg" alt="Bungalov 3">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="4bungalov.html" class="bungalov-button">
+      <img src="resimler/4bungalov.jpg" alt="Bungalov 4">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="5bungalov.html" class="bungalov-button">
+      <img src="resimler/5bungalov.jpg" alt="Bungalov 5">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="6bungalov.html" class="bungalov-button">
+      <img src="resimler/6bungalov.jpg" alt="Bungalov 6">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="7bungalov.html" class="bungalov-button">
+      <img src="resimler/7bungalov.jpg" alt="Bungalov 7">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="8bungalov.html" class="bungalov-button">
+      <img src="resimler/8bungalov.jpg" alt="Bungalov 8">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="9bungalov.html" class="bungalov-button">
+      <img src="resimler/9bungalov.jpg" alt="Bungalov 9">
+      <div class="bungalov-caption"></div>
+    </a>
+    <a href="10bungalov.html" class="bungalov-button">
+      <img src="resimler/10bungalov.jpg" alt="Bungalov 10">
+      <div class="bungalov-caption"></div>
+    </a>
+  </div>
+
+  <!-- Ekstra Bilgiler -->
+  <section class="info-section">
+    <h2 data-i18n="bungalov.infoTitle">Ekstra Bilgiler</h2>
+    <p data-i18n="bungalov.info1">Bungalovlarımıza ekstra ücret karşılığında sadece restoranımızda sunulan kahvaltı hizmetimiz bulunmaktadır.</p>
+    <p data-i18n="bungalov.info2">Sizi Trabzon Havalimanı’ndan VIP araçlarımızla bungalovlarımıza transfer ediyoruz. Transfer hizmetimiz ücretlidir ve önceden rezervasyon gerektirir.</p>
+  </section>
+
+  <!-- Sıkça Sorulan Sorular (Eski Hali) -->
+  <section class="faq">
+    <h3 data-i18n="faq.title">Sıkça Sorulan Sorular</h3>
+    <div class="faq-item">
+      <strong data-i18n="faq.q1">Kahvaltı bungalov fiyatlarına dahil mi?</strong>
+      <p data-i18n="faq.a1">Hayır, kahvaltı ekstra ücrete tabidir ve sadece restoranımızda servis edilmektedir.</p>
+    </div>
+    <div class="faq-item">
+      <strong data-i18n="faq.q2">Transfer hizmetini nasıl ayarlayabilirim?</strong>
+      <p data-i18n="faq.a2">Rezervasyon sırasında VIP transfer talebinizi belirtebilirsiniz.</p>
+    </div>
+    <div class="faq-item">
+      <strong data-i18n="faq.q3">Bungalovlarda internet var mı?</strong>
+      <p data-i18n="faq.a3">Evet, tüm bungalovlarımızda ücretsiz Wi-Fi mevcuttur.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 Ganita Travel. Tüm hakları saklıdır.
+</footer>
+
+<script>
+  const translations = {
+    tr: {
+      "nav.home": "Anasayfa",
+      "nav.turlar": "Turlar",
+      "nav.nedenBiz": "Neden Biz?",
+      "nav.iletisim": "İletişim",
+      "bungalov.title": "Bungalovlarımız",
+      "bungalov.infoTitle": "Ekstra Bilgiler",
+      "bungalov.info1": "Bungalovlarımıza ekstra ücret karşılığında sadece restoranımızda sunulan kahvaltı hizmetimiz bulunmaktadır.",
+      "bungalov.info2": "Sizi Trabzon Havalimanı’ndan VIP araçlarımızla bungalovlarımıza transfer ediyoruz. Transfer hizmetimiz ücretlidir ve önceden rezervasyon gerektirir.",
+      "faq.title": "Sıkça Sorulan Sorular",
+      "faq.q1": "Kahvaltı bungalov fiyatlarına dahil mi?",
+      "faq.a1": "Hayır, kahvaltı ekstra ücrete tabidir ve sadece restoranımızda servis edilmektedir.",
+      "faq.q2": "Transfer hizmetini nasıl ayarlayabilirim?",
+      "faq.a2": "Rezervasyon sırasında VIP transfer talebinizi belirtebilirsiniz.",
+      "faq.q3": "Bungalovlarda internet var mı?",
+      "faq.a3": "Evet, tüm bungalovlarımızda ücretsiz Wi-Fi mevcuttur."
+    },
+    en: {
+      "nav.home": "Home",
+      "nav.turlar": "Tours",
+      "nav.nedenBiz": "Why Us?",
+      "nav.iletisim": "Contact",
+      "bungalov.title": "Our Bungalows",
+      "bungalov.infoTitle": "Extra Information",
+      "bungalov.info1": "We offer breakfast service only in our restaurant for an extra fee.",
+      "bungalov.info2": "We provide VIP transfer from Trabzon Airport to our bungalows. The service is paid and requires prior reservation.",
+      "faq.title": "Frequently Asked Questions",
+      "faq.q1": "Is breakfast included in bungalow prices?",
+      "faq.a1": "No, breakfast is charged extra and served only in our restaurant.",
+      "faq.q2": "How can I arrange transfer service?",
+      "faq.a2": "You can request VIP transfer during booking.",
+      "faq.q3": "Is there internet in the bungalows?",
+      "faq.a3": "Yes, all our bungalows have free Wi-Fi."
+    },
+    ar: {
+      "nav.home": "الرئيسية",
+      "nav.turlar": "الجولات",
+      "nav.nedenBiz": "لماذا نحن؟",
+      "nav.iletisim": "اتصل بنا",
+      "bungalov.title": "أكواخنا",
+      "bungalov.infoTitle": "معلومات إضافية",
+      "bungalov.info1": "نوفر خدمة الإفطار فقط في مطعمنا مقابل رسوم إضافية.",
+      "bungalov.info2": "نوفر خدمة النقل VIP من مطار طرابزون إلى أكواخنا مقابل رسوم وبحجز مسبق.",
+      "faq.title": "الأسئلة الشائعة",
+      "faq.q1": "هل الإفطار مشمول في أسعار الأكواخ؟",
+      "faq.a1": "لا، الإفطار برسوم إضافية ويُقدم فقط في مطعمنا.",
+      "faq.q2": "كيف يمكنني ترتيب خدمة النقل؟",
+      "faq.a2": "يمكنك طلب النقل VIP أثناء الحجز.",
+      "faq.q3": "هل يوجد إنترنت في الأكواخ؟",
+      "faq.a3": "نعم، جميع أكواخنا بها واي فاي مجاني."
+    }
+  };
+
+  const langSelector = document.getElementById('langSelector');
+  ['tr','en','ar'].forEach(code => {
+    const btn = document.createElement('button');
+    btn.textContent = code.toUpperCase();
+    btn.addEventListener('click', () => setLanguage(code));
+    langSelector.appendChild(btn);
+  });
+
+  function setLanguage(lang) {
+    localStorage.setItem('siteLang', lang);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.querySelectorAll('#langSelector button').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang.toLowerCase());
+    });
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if(translations[lang] && translations[lang][key]){
+        el.textContent = translations[lang][key];
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('siteLang') || 'tr';
+    setLanguage(savedLang);
+  });
+</script>
+</body>
+</html>
